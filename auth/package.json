@@ -4,7 +4,7 @@
   "description": "Auth Service for signup, signin, signout and get curr user",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev src/index.ts"
+    "start": "ts-node-dev --poll src/index.ts"
   },
   "author": "Siyu Chen",
   "license": "ISC",
