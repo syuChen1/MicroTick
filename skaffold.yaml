@@ -1,0 +1,18 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: syuchen1/auth
+      context: auth
+      docker:
+        dockerfile: dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .

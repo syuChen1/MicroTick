@@ -1,0 +1,17 @@
+{
+  "name": "auth",
+  "version": "1.0.0",
+  "description": "Auth Service for signup, signin, signout and get curr user",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev src/index.ts"
+  },
+  "author": "Siyu Chen",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "express": "^4.17.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  }
+}
