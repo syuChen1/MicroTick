@@ -1,9 +1,9 @@
 import express from 'express';
 import 'express-async-errors';
-import { CreateTicketRouter } from './routes/new';
-import { ShowTicketRouter } from './routes/show';
-import { IndexTicketRouter } from './routes/index';
-import { UpdateTicketRouter } from './routes/update';
+import { newOrderRouter } from './routes/new';
+import { showOrderRouter } from './routes/show';
+import { indexOrderRouter } from './routes/index';
+import { deleteOrderRouter } from './routes/delete';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 import {
@@ -24,10 +24,10 @@ app.use(
 );
 app.use(currentUser);
 
-app.use(ShowTicketRouter);
-app.use(CreateTicketRouter);
-app.use(IndexTicketRouter);
-app.use(UpdateTicketRouter);
+app.use(newOrderRouter);
+app.use(showOrderRouter);
+app.use(indexOrderRouter);
+app.use(deleteOrderRouter);
 
 app.all('*', async () => {
   throw new NotFoundError();
