@@ -1,5 +1,6 @@
-import nats, { Message } from 'node-nats-streaming';
+import nats from 'node-nats-streaming';
 import { randomBytes } from 'crypto';
+import { TicketCreatedListener } from './events/ticket-created-listener';
 
 console.clear();
 
@@ -15,27 +16,7 @@ stan.on('connect', () => {
     process.exit();
   });
 
-  const options = stan
-    .subscriptionOptions()
-    .setManualAckMode(true)
-    .setDeliverAllAvailable()
-    .setDurableName('accouting-service');
-
-  const subscription = stan.subscribe(
-    'ticket:created',
-    'queue-geoup=name',
-    options
-  );
-
-  subscription.on('message', (msg: Message) => {
-    const data = msg.getData();
-
-    if (typeof data === 'string') {
-      console.log(`Recrived event #${msg.getSequence()}, with data:${data}`);
-    }
-
-    msg.ack();
-  });
+  new TicketCreatedListener(stan).listen();
 });
 
 process.on('SIGINT', () => stan.close());
