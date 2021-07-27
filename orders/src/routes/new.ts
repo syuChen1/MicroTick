@@ -35,7 +35,6 @@ router.post(
     }
 
     // Make sure that ticket is not already reserved
-
     const isReserved = await ticket.isReserved();
     if (isReserved) {
       throw new BadRequestError('Ticket is already reserved');
