@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const LandingPage = ({ currentUser, tickets }) => {
   return (
@@ -9,6 +10,7 @@ const LandingPage = ({ currentUser, tickets }) => {
           <tr>
             <th>Title</th>
             <th>price</th>
+            <th>Link</th>
           </tr>
         </thead>
         <tbody>
@@ -16,6 +18,11 @@ const LandingPage = ({ currentUser, tickets }) => {
             <tr key={ticket.id}>
               <td>{ticket.title}</td>
               <td>{ticket.price}</td>
+              <td>
+                <Link href='/tickets/[ticketId]' as={`/tickets/${ticket.id}`}>
+                  <a>View</a>
+                </Link>
+              </td>
             </tr>
           ))}
         </tbody>
