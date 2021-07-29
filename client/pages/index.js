@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 const LandingPage = ({ currentUser, tickets }) => {
+  console.log(tickets);
   return (
     <div>
       <h1>Tickets</h1>
@@ -9,8 +10,9 @@ const LandingPage = ({ currentUser, tickets }) => {
         <thead>
           <tr>
             <th>Title</th>
-            <th>price</th>
+            <th>Price</th>
             <th>Link</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +25,7 @@ const LandingPage = ({ currentUser, tickets }) => {
                   <a>View</a>
                 </Link>
               </td>
+              <td>{ticket.orderId ? 'Reserved' : 'Avaliable'}</td>
             </tr>
           ))}
         </tbody>
