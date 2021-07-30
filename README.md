@@ -42,3 +42,5 @@ The client is implemented with [Next.js](https://nextjs.org/) which utilize serv
 
 ## CI/CD and Deployment Workflow
 ![image](https://user-images.githubusercontent.com/44207825/127685432-9c91efc7-9e22-4d28-a96d-60943304a369.png)
+
+# Check out the [Event Flow](https://github.com/syuChen1/MicroTick/blob/main/event-flow.md) between different services
