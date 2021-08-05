@@ -4,13 +4,13 @@ const buildClient = ({ req }) => {
   if (typeof window === 'undefined') {
     // we are on the server!
     let baseURL = 'https://www.microtick.xyz';
-    if (process.env.NODE_ENV === 'development') {
-      baseURL =
-        'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local';
-    }
+    // if (process.env.NODE_ENV === 'development') {
+    //   baseURL =
+    //     'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local';
+    // }
 
     return axios.create({
-      baseURL,
+      baseURL: 'https://www.microtick.xyz',
       headers: req.headers,
     });
   } else {
