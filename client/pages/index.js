@@ -1,17 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
+import { Container, Table } from 'react-bootstrap';
 
 const LandingPage = ({ currentUser, tickets }) => {
   console.log(tickets);
   return (
-    <div>
+    <Container>
       <h1>Tickets: </h1>
-      <table className='table'>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Title</th>
             <th>Price</th>
-            <th>Link</th>
+            <th>Detail</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -29,8 +30,8 @@ const LandingPage = ({ currentUser, tickets }) => {
             </tr>
           ))}
         </tbody>
-      </table>
-    </div>
+      </Table>
+    </Container>
   );
 };
 

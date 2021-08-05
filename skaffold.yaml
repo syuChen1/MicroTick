@@ -25,6 +25,8 @@ build:
         manual:
           - src: '**/*.js'
             dest: .
+          - src: '**/*.css'
+            dest: .
     - image: syuchen1/tickets
       context: tickets
       docker:
