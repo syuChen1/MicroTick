@@ -15,6 +15,12 @@ spec:
       containers:
         - name: client
           image: syuchen1/client
+          env:
+            - name: NODE-ENV
+              valueFrom:
+                secretKeyRef:
+                  name: node-env
+                  key: NODE-ENV
 ---
 apiVersion: v1
 kind: Service
