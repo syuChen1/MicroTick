@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Router from 'next/router';
 import useRequest from '../../hookds/use-request';
+import { Container } from 'react-bootstrap';
 
 const NewTicket = () => {
   const [title, setTitle] = useState('');
@@ -28,12 +29,11 @@ const NewTicket = () => {
 
   const onsubmit = (event) => {
     event.preventDefault();
-
     doRequest();
   };
 
   return (
-    <div>
+    <Container>
       <h1>Create a Ticket</h1>
       <form onSubmit={onsubmit}>
         <div className='form-group my-1'>
@@ -56,7 +56,7 @@ const NewTicket = () => {
         {errors}
         <button className='btn btn-primary my-3'>Submit</button>
       </form>
-    </div>
+    </Container>
   );
 };
 

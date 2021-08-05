@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const Header = ({ currentUser }) => {
   const links = [
@@ -12,24 +13,20 @@ const Header = ({ currentUser }) => {
     .filter((linkConfig) => linkConfig)
     .map(({ label, href }) => {
       return (
-        <li key={href} className='nav-item'>
-          <Link href={href}>
-            <a className='nav-link'>{label}</a>
-          </Link>
-        </li>
+        <Nav.Link key={label} href={href} className='mx-3'>
+          {label}
+        </Nav.Link>
       );
     });
 
   return (
-    <nav className='navbar navbar-light bg-light'>
-      <Link href='/'>
-        <a className='navbar-brand'>MicroTick</a>
-      </Link>
+    <Navbar bg='dark' variant='dark' expand='sm' className='mb-4'>
+      <Container>
+        <Navbar.Brand href='/'>MicroTick</Navbar.Brand>
 
-      <div className='d-flex justify-content-end'>
-        <ul className='nav d-flex align-items-center'>{links}</ul>
-      </div>
-    </nav>
+        <Nav className='ms-auto d-flex align-items-center '>{links}</Nav>
+      </Container>
+    </Navbar>
   );
 };
 

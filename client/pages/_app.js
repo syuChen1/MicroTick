@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import buildClient from '../api/build-client';
 import Header from '../components/Header';
+import './style.css';
 
 // wrapper for the component we want to show on the screen
 const AppComponent = ({ Component, pageProps, currentUser }) => {

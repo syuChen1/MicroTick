@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Router from 'next/router';
 import useRequest from '../../hookds/use-request';
+import { Form } from 'react-bootstrap';
 
 const signup = () => {
   const [email, setEmail] = useState('');
@@ -22,8 +23,8 @@ const signup = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <h1>Sign up</h1>
+    <Form onSubmit={onSubmit}>
+      <h1>Sign Up</h1>
       <div className='form-group my-3'>
         <label>Email Address</label>
         <input
@@ -43,7 +44,7 @@ const signup = () => {
       </div>
       {errors}
       <button className='btn btn-primary'>Sign Up</button>
-    </form>
+    </Form>
   );
 };
 
